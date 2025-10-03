@@ -588,6 +588,27 @@ body {
   opacity: 0.8;
 }
 
+.footer-contact {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #374151;
+}
+
+.footer-contact p {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.footer-contact a {
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
