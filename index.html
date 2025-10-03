@@ -4,54 +4,246 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Children IBS-C Clinical Trial - MED Clinical Research Partners</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h2 class="company-name">MED Clinical Research Partners, LLC</h2>
-      <h1 class="main-headline">Is your child living with IBS-C?</h1>
-      <p class="sub-text">If your child is between the ages of 12 and 17 and has been diagnosed with Irritable Bowel Syndrome with Constipation (IBS-C), they may qualify for a clinical research study evaluating an investigational medication.</p>
-    </header>
-
-    <section class="features-card">
-      <h3>What's Included:</h3>
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Study-related exams, procedures, and medications at no cost</li>
-        <li><i class="fas fa-check-circle"></i> Possible compensation for time and travel</li>
-      </ul>
-    </section>
-
-    <div class="cta-section">
-      <a href="tel:9087988373" class="cta-button">
-        <i class="fas fa-phone"></i> More Information
-      </a>
-      <div class="contact-details">
-        <p><strong>Phone:</strong> <a href="tel:9087988373">908-798-8373</a></p>
-        <p><strong>Address:</strong> 40 Union Ave, Suite 206, Irvington NJ 07111</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="company-badge">MED Clinical Research Partners, LLC</div>
+          <h1 class="hero-title">Is Your Child Living With IBS-C?</h1>
+          <p class="hero-subtitle">If your child is between 12-17 years old and has been diagnosed with Irritable Bowel Syndrome with Constipation (IBS-C), they may qualify for our clinical research study.</p>
+          <div class="hero-features">
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>No cost study-related care</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Compensation for time & travel</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Specialized medical attention</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-form">
+          <div class="form-card">
+            <h3>See If You Qualify</h3>
+            <form id="qualificationForm" class="qualification-form">
+              <div class="form-group">
+                <label for="parentName">Parent/Guardian Name *</label>
+                <input type="text" id="parentName" name="parentName" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="childAge">Child's Age *</label>
+                <select id="childAge" name="childAge" required>
+                  <option value="">Select Age</option>
+                  <option value="12">12 years old</option>
+                  <option value="13">13 years old</option>
+                  <option value="14">14 years old</option>
+                  <option value="15">15 years old</option>
+                  <option value="16">16 years old</option>
+                  <option value="17">17 years old</option>
+                </select>
+              </div>
+              <button type="submit" class="cta-button">
+                <i class="fas fa-arrow-right"></i>
+                See If You Qualify
+              </button>
+            </form>
+            <div class="trust-badges">
+              <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>HIPAA Compliant</span>
+              </div>
+              <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>Privacy Protected</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="images-section">
-      <div class="image-container">
-        <img src="https://via.placeholder.com/150x150/1e40af/ffffff?text=Teen+with+Stomach+Pain" alt="Teen holding stomach">
-        <p class="image-caption">Teen with stomach pain</p>
-      </div>
-      <div class="image-container">
-        <img src="https://via.placeholder.com/150x150/0ea5e9/ffffff?text=Doctor+Consultation" alt="Doctor with patient">
-        <p class="image-caption">Doctor consultation</p>
-      </div>
-      <div class="image-container">
-        <img src="https://via.placeholder.com/150x150/1e40af/ffffff?text=Concerned+Parent" alt="Concerned parent with child">
-        <p class="image-caption">Concerned parent</p>
+  <!-- What's Included Section -->
+  <section class="included-section">
+    <div class="container">
+      <h2 class="section-title">What's Included in the Study</h2>
+      <div class="included-cards">
+        <div class="included-card">
+          <div class="card-icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Study-Related Care</h3>
+          <p>Exams, procedures, and medications at no cost to you</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Compensation</h3>
+          <p>Possible compensation for your time and travel expenses</p>
+        </div>
+        <div class="included-card">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Specialized Care</h3>
+          <p>Expert medical attention throughout the study duration</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <footer>
-      <p>&copy; 2025 MED Clinical Research Partners, LLC. All rights reserved.</p>
-    </footer>
+  <!-- Eligibility Section -->
+  <section class="eligibility-section">
+    <div class="container">
+      <div class="eligibility-content">
+        <div class="eligibility-text">
+          <h2>Study Eligibility Requirements</h2>
+          <p>Your child may qualify if they meet these criteria:</p>
+          <div class="eligibility-checklist">
+            <div class="checklist-item">
+              <i class="fas fa-check"></i>
+              <span>Child is between 12-17 years old</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fas fa-check"></i>
+              <span>Diagnosed with IBS-C by a healthcare provider</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fas fa-check"></i>
+              <span>Able to attend study visits as required</span>
+            </div>
+            <div class="checklist-item">
+              <i class="fas fa-check"></i>
+              <span>Parent/guardian consent to participate</span>
+            </div>
+          </div>
+        </div>
+        <div class="eligibility-image">
+          <img src="https://via.placeholder.com/400x300/1e40af/ffffff?text=Medical+Consultation" alt="Medical consultation">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is this study safe for my child?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, all clinical studies are carefully designed with safety as the top priority. Our study is conducted under strict medical supervision and follows all regulatory guidelines to ensure participant safety.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do we get paid for participating?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, participants may receive compensation for their time and travel expenses. The exact amount varies based on study requirements and will be discussed during the screening process.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What happens during study visits?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Study visits typically include medical examinations, questionnaires about symptoms, and monitoring of the investigational medication. All procedures are explained in detail before they occur.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can we withdraw from the study?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. Participation is completely voluntary, and you or your child can withdraw from the study at any time for any reason without affecting your future medical care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Ready to Learn More?</h2>
+          <p>Contact our research team to discuss your child's eligibility and get answers to your questions.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:9087988373">908-798-8373</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@medclinicalresearch.com">info@medclinicalresearch.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Address</strong>
+                <span>40 Union Ave, Suite 206<br>Irvington, NJ 07111</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-image">
+          <img src="https://via.placeholder.com/400x300/0ea5e9/ffffff?text=Contact+Us" alt="Contact our team">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Apply Button -->
+  <div class="sticky-apply">
+    <button class="sticky-button" onclick="document.getElementById('qualificationForm').scrollIntoView({behavior: 'smooth'})">
+      <i class="fas fa-arrow-up"></i>
+      Apply Now
+    </button>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MED Clinical Research Partners, LLC. All rights reserved.</p>
+      <p class="footer-disclaimer">This study is conducted under IRB approval and follows all applicable regulations.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
