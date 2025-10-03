@@ -97,13 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(form);
       const data = {
         parentName: formData.get('parentName'),
+        childName: formData.get('childName'),
         email: formData.get('email'),
         phone: formData.get('phone'),
         childAge: formData.get('childAge')
       };
       
       // Validate form
-      if (!data.parentName || !data.email || !data.phone || !data.childAge) {
+      if (!data.parentName || !data.childName || !data.email || !data.phone || !data.childAge) {
         alert('Please fill in all required fields.');
         return;
       }
