@@ -1,3 +1,69 @@
+// Language Management
+let currentLanguage = 'en';
+
+// Check if language was previously selected
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  if (savedLanguage) {
+    currentLanguage = savedLanguage;
+    document.getElementById('languageModal').classList.add('hidden');
+    updateLanguage();
+  } else {
+    // Show language modal on first visit
+    document.getElementById('languageModal').classList.remove('hidden');
+  }
+});
+
+function selectLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem('selectedLanguage', lang);
+  document.getElementById('languageModal').classList.add('hidden');
+  updateLanguage();
+}
+
+function toggleLanguage() {
+  currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+  localStorage.setItem('selectedLanguage', currentLanguage);
+  updateLanguage();
+}
+
+function updateLanguage() {
+  // Update all elements with data attributes
+  const elements = document.querySelectorAll('[data-en][data-es]');
+  elements.forEach(element => {
+    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      // Handle placeholders for input elements
+      if (element.hasAttribute('data-placeholder-en') && element.hasAttribute('data-placeholder-es')) {
+        element.placeholder = currentLanguage === 'en' ? 
+          element.getAttribute('data-placeholder-en') : 
+          element.getAttribute('data-placeholder-es');
+      }
+    } else {
+      // Handle text content for other elements
+      element.textContent = currentLanguage === 'en' ? 
+        element.getAttribute('data-en') : 
+        element.getAttribute('data-es');
+    }
+  });
+
+  // Update select options
+  const selectOptions = document.querySelectorAll('option[data-en][data-es]');
+  selectOptions.forEach(option => {
+    option.textContent = currentLanguage === 'en' ? 
+      option.getAttribute('data-en') : 
+      option.getAttribute('data-es');
+  });
+
+  // Update language toggle button
+  document.getElementById('currentLanguage').textContent = currentLanguage.toUpperCase();
+  
+  // Update page direction if needed
+  document.documentElement.lang = currentLanguage;
+  if (currentLanguage === 'es') {
+    document.documentElement.dir = 'ltr'; // Spanish is left-to-right
+  }
+}
+
 // FAQ Accordion Functionality
 document.addEventListener('DOMContentLoaded', function() {
   const faqItems = document.querySelectorAll('.faq-item');
