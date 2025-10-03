@@ -573,40 +573,60 @@ body {
 
 /* Footer */
 .footer {
-  background: #1e293b;
-  color: #94a3b8;
-  padding: 2rem 0;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #cbd5e1;
+  padding: 3rem 0;
   text-align: center;
+  border-top: 3px solid #06b6d4;
 }
 
 .footer p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #e2e8f0;
 }
 
 .footer-disclaimer {
   font-size: 0.875rem;
-  opacity: 0.8;
+  color: #94a3b8;
+  opacity: 0.9;
 }
 
 .footer-contact {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #374151;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .footer-contact p {
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.footer-contact strong {
+  color: #f1f5f9;
+  font-weight: 600;
 }
 
 .footer-contact a {
   color: #06b6d4;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
 }
 
 .footer-contact a:hover {
+  color: #0ea5e9;
   text-decoration: underline;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
 }
 
 /* Responsive Design */
