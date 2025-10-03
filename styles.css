@@ -56,6 +56,10 @@ body {
 
 .company-logo {
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .company-logo .logo {
@@ -67,6 +71,18 @@ body {
 
 .company-logo .logo:hover {
   transform: scale(1.05);
+}
+
+.company-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #f0f9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-title {
@@ -670,6 +686,16 @@ body {
   .hero {
     padding: 2rem 0;
     min-height: auto;
+  }
+  
+  .company-logo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .company-name {
+    font-size: 1.25rem;
   }
   
   .hero-title {
