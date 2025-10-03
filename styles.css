@@ -91,25 +91,11 @@ body {
   line-height: 1.1;
   margin-bottom: 1.5rem;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: titleGlow 2s ease-in-out infinite alternate;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.hero-title span:first-child {
   background: linear-gradient(45deg, #ffffff, #f0f9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.hero-title .emoji {
-  font-size: 3.5rem;
-  filter: none;
-  -webkit-text-fill-color: initial;
-  background: none;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes titleGlow {
