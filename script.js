@@ -103,8 +103,18 @@ document.addEventListener('DOMContentLoaded', function() {
         childAge: formData.get('childAge')
       };
       
+      // Debug logging
+      console.log('Form data:', data);
+      
       // Validate form
       if (!data.parentFirstName || !data.parentLastName || !data.email || !data.phone || !data.childAge) {
+        console.log('Validation failed:', {
+          parentFirstName: data.parentFirstName,
+          parentLastName: data.parentLastName,
+          email: data.email,
+          phone: data.phone,
+          childAge: data.childAge
+        });
         alert('Please fill in all required fields.');
         return;
       }
