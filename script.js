@@ -135,18 +135,16 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
         
-        // Hide form and show success message
-        form.style.display = 'none';
-        document.getElementById('successMessage').classList.remove('hidden');
+        // Show success overlay
+        document.getElementById('successOverlay').classList.remove('hidden');
         
-        // Scroll to success message
-        document.getElementById('successMessage').scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'center'
-        });
-        
-        // Reset form (hidden)
+        // Reset form
         form.reset();
+        
+        // Auto-hide overlay after 4 seconds
+        setTimeout(() => {
+          document.getElementById('successOverlay').classList.add('hidden');
+        }, 4000);
         
         // In a real implementation, you would send the data to your server:
         // fetch('/api/qualification', {
