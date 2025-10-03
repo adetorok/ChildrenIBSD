@@ -96,15 +96,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Get form data
       const formData = new FormData(form);
       const data = {
-        parentName: formData.get('parentName'),
-        childName: formData.get('childName'),
+        parentFirstName: formData.get('parentFirstName'),
+        parentLastName: formData.get('parentLastName'),
         email: formData.get('email'),
         phone: formData.get('phone'),
         childAge: formData.get('childAge')
       };
       
       // Validate form
-      if (!data.parentName || !data.childName || !data.email || !data.phone || !data.childAge) {
+      if (!data.parentFirstName || !data.parentLastName || !data.email || !data.phone || !data.childAge) {
         alert('Please fill in all required fields.');
         return;
       }
@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset form
         form.reset();
         
-        // Auto-hide overlay after 4 seconds
+        // Auto-hide overlay after 8 seconds
         setTimeout(() => {
           document.getElementById('successOverlay').classList.add('hidden');
-        }, 4000);
+        }, 8000);
         
         // In a real implementation, you would send the data to your server:
         // fetch('/api/qualification', {

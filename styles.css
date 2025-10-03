@@ -364,7 +364,7 @@ body {
   background: linear-gradient(90deg, #fbbf24, #f59e0b);
   border-radius: 2px;
   width: 100%;
-  animation: timerCountdown 4s linear forwards;
+  animation: timerCountdown 8s linear forwards;
 }
 
 @keyframes timerCountdown {
