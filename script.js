@@ -135,10 +135,17 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
         
-        // Show success message
-        alert('Thank you for your interest! Our team will contact you within 24 hours to discuss your child\'s eligibility for the study.');
+        // Hide form and show success message
+        form.style.display = 'none';
+        document.getElementById('successMessage').classList.remove('hidden');
         
-        // Reset form
+        // Scroll to success message
+        document.getElementById('successMessage').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+        
+        // Reset form (hidden)
         form.reset();
         
         // In a real implementation, you would send the data to your server:
