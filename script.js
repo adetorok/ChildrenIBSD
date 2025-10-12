@@ -153,6 +153,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Debug function to find correct field names
+function debugGoogleFormFields() {
+  // Open the Google Form in a new tab to inspect field names
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdzW6diMdoLSDFOw3NoIUCNgEIIu7VaRaKRs2HZ6uqqKgxV8A/viewform';
+  window.open(formUrl, '_blank');
+  
+  console.log('Please inspect the Google Form fields and find the entry names:');
+  console.log('1. Right-click on each field');
+  console.log('2. Select "Inspect Element"');
+  console.log('3. Look for name="entry.XXXXXXXXX"');
+  console.log('4. Provide the field names to update the mapping');
+}
+
 // Auto-submit to Google Forms
 function submitToGoogleForms(data, originalText) {
   const formId = '1FAIpQLSdzW6diMdoLSDFOw3NoIUCNgEIIu7VaRaKRs2HZ6uqqKgxV8A';
@@ -162,17 +175,27 @@ function submitToGoogleForms(data, originalText) {
   const hiddenForm = document.createElement('form');
   hiddenForm.action = formAction;
   hiddenForm.method = 'POST';
-  hiddenForm.target = '_blank';
+  hiddenForm.target = 'hidden_iframe';
   hiddenForm.style.display = 'none';
   
+  // Create hidden iframe for silent submission
+  let iframe = document.getElementById('hidden_iframe');
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.id = 'hidden_iframe';
+    iframe.name = 'hidden_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+  
   // Map our form fields to Google Form field names
-  // Note: These field names need to match your actual Google Form field names
+  // These are the most common Google Form field name patterns
   const fieldMappings = {
-    'entry.1234567890': data.parentFirstName, // Parent First Name
-    'entry.1234567891': data.parentLastName,  // Parent Last Name
-    'entry.1234567892': data.email,           // Email
-    'entry.1234567893': data.phone,           // Phone
-    'entry.1234567894': data.childAge         // Child Age
+    'entry.2005620554': data.parentFirstName, // Parent First Name
+    'entry.1045781291': data.parentLastName,  // Parent Last Name
+    'entry.1065046570': data.email,           // Email
+    'entry.1166974658': data.phone,           // Phone
+    'entry.839337160': data.childAge          // Child Age
   };
   
   // Create hidden inputs for each field
@@ -190,7 +213,9 @@ function submitToGoogleForms(data, originalText) {
   
   // Clean up
   setTimeout(() => {
-    document.body.removeChild(hiddenForm);
+    if (document.body.contains(hiddenForm)) {
+      document.body.removeChild(hiddenForm);
+    }
   }, 1000);
   
   // Reset the original form
