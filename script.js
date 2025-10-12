@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (form) {
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
+      // Don't prevent default - allow form to submit to Google Forms
       
       // Get form data
       const formData = new FormData(form);
@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
           phone: data.phone,
           childAge: data.childAge
         });
+        e.preventDefault();
         alert('Please fill in all required fields.');
         return;
       }
@@ -122,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Validate email format
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
+        e.preventDefault();
         alert('Please enter a valid email address.');
         return;
       }
@@ -129,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Validate phone format (basic)
       const phoneRegex = /^[\d\s\-\+\(\)]+$/;
       if (!phoneRegex.test(data.phone)) {
+        e.preventDefault();
         alert('Please enter a valid phone number.');
         return;
       }
@@ -136,43 +139,12 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show loading state
       const submitButton = form.querySelector('.cta-button');
       const originalText = submitButton.innerHTML;
-      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to Google Form...';
       submitButton.disabled = true;
       
-      // Simulate form submission (replace with actual API call)
-      setTimeout(() => {
-        // Reset button
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-        
-        // Show success overlay
-        document.getElementById('successOverlay').classList.remove('hidden');
-        
-        // Reset form
-        form.reset();
-        
-        // Auto-hide overlay after 8 seconds
-        setTimeout(() => {
-          document.getElementById('successOverlay').classList.add('hidden');
-        }, 8000);
-        
-        // In a real implementation, you would send the data to your server:
-        // fetch('/api/qualification', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify(data)
-        // })
-        // .then(response => response.json())
-        // .then(result => {
-        //   // Handle success
-        // })
-        // .catch(error => {
-        //   // Handle error
-        // });
-        
-      }, 2000);
+      // Allow form to submit to Google Forms
+      // The form will open in a new tab due to target="_blank" in HTML
+      // No additional processing needed - Google Forms will handle the submission
     });
   }
 });
