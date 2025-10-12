@@ -189,14 +189,26 @@ function submitToGoogleForms(data, originalText) {
   }
   
   // Map our form fields to Google Form field names
-  // These are the most common Google Form field name patterns
+  // Try multiple common field name patterns
   const fieldMappings = {
+    // Try different common patterns
     'entry.2005620554': data.parentFirstName, // Parent First Name
     'entry.1045781291': data.parentLastName,  // Parent Last Name
     'entry.1065046570': data.email,           // Email
     'entry.1166974658': data.phone,           // Phone
-    'entry.839337160': data.childAge          // Child Age
+    'entry.839337160': data.childAge,         // Child Age
+    
+    // Alternative patterns to try
+    'entry.1234567890': data.parentFirstName,
+    'entry.1234567891': data.parentLastName,
+    'entry.1234567892': data.email,
+    'entry.1234567893': data.phone,
+    'entry.1234567894': data.childAge
   };
+  
+  // Log the data being sent for debugging
+  console.log('Submitting data:', data);
+  console.log('Field mappings:', fieldMappings);
   
   // Create hidden inputs for each field
   Object.keys(fieldMappings).forEach(fieldName => {
