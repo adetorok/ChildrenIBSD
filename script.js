@@ -142,12 +142,61 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to Google Form...';
       submitButton.disabled = true;
       
+      // Show follow-up notification after a short delay
+      setTimeout(() => {
+        showFollowUpNotification();
+      }, 1000);
+      
       // Allow form to submit to Google Forms
       // The form will open in a new tab due to target="_blank" in HTML
       // No additional processing needed - Google Forms will handle the submission
     });
   }
 });
+
+// Follow-up notification function
+function showFollowUpNotification() {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = 'follow-up-notification';
+  notification.innerHTML = `
+    <div class="notification-content">
+      <div class="notification-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <div class="notification-text">
+        <h4 data-en="Thank You for Your Interest!" data-es="¡Gracias por su Interés!">Thank You for Your Interest!</h4>
+        <p data-en="Our team will follow up with you shortly to discuss your child's eligibility for the study." data-es="Nuestro equipo se pondrá en contacto con usted en breve para discutir la elegibilidad de su hijo para el estudio.">Our team will follow up with you shortly to discuss your child's eligibility for the study.</p>
+      </div>
+      <button class="notification-close" onclick="closeFollowUpNotification()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  `;
+  
+  // Add to page
+  document.body.appendChild(notification);
+  
+  // Show with animation
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 100);
+  
+  // Auto-hide after 8 seconds
+  setTimeout(() => {
+    closeFollowUpNotification();
+  }, 8000);
+}
+
+function closeFollowUpNotification() {
+  const notification = document.querySelector('.follow-up-notification');
+  if (notification) {
+    notification.classList.add('hide');
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  }
+}
 
 // Smooth scrolling for sticky button
 document.addEventListener('DOMContentLoaded', function() {

@@ -953,6 +953,34 @@ body {
     min-width: 100%;
     max-width: 100%;
   }
+  
+  .follow-up-notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .notification-content {
+    padding: 1rem;
+  }
+  
+  .notification-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .notification-icon i {
+    font-size: 1.2rem;
+  }
+  
+  .notification-text h4 {
+    font-size: 1rem;
+  }
+  
+  .notification-text p {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1091,6 +1119,108 @@ html {
 
 .language-btn i {
   font-size: 2rem;
+}
+
+/* Follow-up Notification */
+.follow-up-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  color: white;
+  padding: 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  max-width: 400px;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.follow-up-notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.follow-up-notification.hide {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.notification-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notification-icon i {
+  font-size: 1.5rem;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-text h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notification-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Language Toggle */
