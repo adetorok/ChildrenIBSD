@@ -139,20 +139,68 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show loading state
       const submitButton = form.querySelector('.cta-button');
       const originalText = submitButton.innerHTML;
-      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to Google Form...';
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
       submitButton.disabled = true;
+      
+      // Auto-submit to Google Forms
+      submitToGoogleForms(data, originalText);
       
       // Show follow-up notification after a short delay
       setTimeout(() => {
         showFollowUpNotification();
       }, 1000);
-      
-      // Allow form to submit to Google Forms
-      // The form will open in a new tab due to target="_blank" in HTML
-      // No additional processing needed - Google Forms will handle the submission
     });
   }
 });
+
+// Auto-submit to Google Forms
+function submitToGoogleForms(data, originalText) {
+  const formId = '1FAIpQLSdzW6diMdoLSDFOw3NoIUCNgEIIu7VaRaKRs2HZ6uqqKgxV8A';
+  const formAction = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+  
+  // Create a hidden form for submission
+  const hiddenForm = document.createElement('form');
+  hiddenForm.action = formAction;
+  hiddenForm.method = 'POST';
+  hiddenForm.target = '_blank';
+  hiddenForm.style.display = 'none';
+  
+  // Map our form fields to Google Form field names
+  // Note: These field names need to match your actual Google Form field names
+  const fieldMappings = {
+    'entry.1234567890': data.parentFirstName, // Parent First Name
+    'entry.1234567891': data.parentLastName,  // Parent Last Name
+    'entry.1234567892': data.email,           // Email
+    'entry.1234567893': data.phone,           // Phone
+    'entry.1234567894': data.childAge         // Child Age
+  };
+  
+  // Create hidden inputs for each field
+  Object.keys(fieldMappings).forEach(fieldName => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = fieldName;
+    input.value = fieldMappings[fieldName] || '';
+    hiddenForm.appendChild(input);
+  });
+  
+  // Add form to page and submit
+  document.body.appendChild(hiddenForm);
+  hiddenForm.submit();
+  
+  // Clean up
+  setTimeout(() => {
+    document.body.removeChild(hiddenForm);
+  }, 1000);
+  
+  // Reset the original form
+  document.getElementById('qualificationForm').reset();
+  
+  // Reset button
+  const submitButton = document.querySelector('.cta-button');
+  submitButton.innerHTML = originalText;
+  submitButton.disabled = false;
+}
 
 // Follow-up notification function
 function showFollowUpNotification() {
