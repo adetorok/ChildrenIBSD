@@ -152,6 +152,39 @@ body {
   }
 }
 
+/* Hero Images */
+.hero-images {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-image-container {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Form Card */
 .hero-form {
   position: relative;
@@ -846,6 +879,17 @@ body {
   .sticky-button {
     padding: 0.875rem 1.25rem;
     font-size: 0.9rem;
+  }
+  
+  .hero-images {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .hero-image-container {
+    min-width: 100%;
+    max-width: 100%;
   }
 }
 
