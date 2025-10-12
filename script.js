@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.disabled = true;
       
       // Auto-submit to Google Forms
-      submitToGoogleForms(data, originalText);
+      submitToGoogleForms(data, originalText, submitButton);
       
       // Show follow-up notification after a short delay
       setTimeout(() => {
@@ -167,7 +167,7 @@ function debugGoogleFormFields() {
 }
 
 // Auto-submit to Google Forms
-function submitToGoogleForms(data, originalText) {
+function submitToGoogleForms(data, originalText, submitButton) {
   const formId = '1FAIpQLSdzW6diMdoLSDFOw3NoIUCNgEIIu7VaRaKRs2HZ6uqqKgxV8A';
   const formAction = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
   
@@ -233,10 +233,17 @@ function submitToGoogleForms(data, originalText) {
   // Reset the original form
   document.getElementById('qualificationForm').reset();
   
-  // Reset button
-  const submitButton = document.querySelector('.cta-button');
-  submitButton.innerHTML = originalText;
-  submitButton.disabled = false;
+  // Show success message on button
+  submitButton.innerHTML = '<i class="fas fa-check-circle"></i> Thanks for submission! The team will contact you soon.';
+  submitButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+  submitButton.disabled = true;
+  
+  // Keep the success state for 5 seconds, then reset
+  setTimeout(() => {
+    submitButton.innerHTML = originalText;
+    submitButton.style.background = '';
+    submitButton.disabled = false;
+  }, 5000);
 }
 
 // Follow-up notification function
@@ -250,8 +257,8 @@ function showFollowUpNotification() {
         <i class="fas fa-phone"></i>
       </div>
       <div class="notification-text">
-        <h4 data-en="Thank You for Your Interest!" data-es="¡Gracias por su Interés!">Thank You for Your Interest!</h4>
-        <p data-en="Our team will follow up with you shortly to discuss your child's eligibility for the study." data-es="Nuestro equipo se pondrá en contacto con usted en breve para discutir la elegibilidad de su hijo para el estudio.">Our team will follow up with you shortly to discuss your child's eligibility for the study.</p>
+        <h4 data-en="Thank You for Your Submission!" data-es="¡Gracias por su Envío!">Thank You for Your Submission!</h4>
+        <p data-en="Your form has been successfully submitted. Our team will contact you soon to discuss your child's eligibility for the study." data-es="Su formulario ha sido enviado exitosamente. Nuestro equipo se pondrá en contacto con usted pronto para discutir la elegibilidad de su hijo para el estudio.">Your form has been successfully submitted. Our team will contact you soon to discuss your child's eligibility for the study.</p>
       </div>
       <button class="notification-close" onclick="closeFollowUpNotification()">
         <i class="fas fa-times"></i>
