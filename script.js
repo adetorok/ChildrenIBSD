@@ -209,7 +209,7 @@ function submitToGoogleForms(data, originalText, submitButton) {
     'entry.2023372959': data.parentLastName,  // Parent Last Name
     'entry.2328612': data.email,              // Email
     'entry.580690581': data.phone,            // Phone
-    'entry.205939784': data.childAge          // Child Age
+    'entry.205939784': `${data.childAge} years old` // Child Age
   };
   
   // Log the data being sent for debugging
