@@ -166,6 +166,20 @@ function debugGoogleFormFields() {
   console.log('4. Provide the field names to update the mapping');
 }
 
+// Test function to manually submit form data
+function testFormSubmission() {
+  const testData = {
+    parentFirstName: 'Test',
+    parentLastName: 'Parent',
+    email: 'test@example.com',
+    phone: '555-123-4567',
+    childAge: '14'
+  };
+  
+  console.log('Testing form submission with:', testData);
+  submitToGoogleForms(testData, 'Test Button', document.querySelector('.cta-button'));
+}
+
 // Auto-submit to Google Forms
 function submitToGoogleForms(data, originalText, submitButton) {
   const formId = '1FAIpQLSdzW6diMdoLSDFOw3NoIUCNgEIIu7VaRaKRs2HZ6uqqKgxV8A';
@@ -199,8 +213,11 @@ function submitToGoogleForms(data, originalText, submitButton) {
   };
   
   // Log the data being sent for debugging
-  console.log('Submitting data:', data);
+  console.log('=== FORM SUBMISSION DEBUG ===');
+  console.log('Raw form data:', data);
   console.log('Field mappings:', fieldMappings);
+  console.log('Google Form URL:', formAction);
+  console.log('Form ID:', formId);
   
   // Create hidden inputs for each field
   Object.keys(fieldMappings).forEach(fieldName => {
@@ -213,7 +230,9 @@ function submitToGoogleForms(data, originalText, submitButton) {
   
   // Add form to page and submit
   document.body.appendChild(hiddenForm);
+  console.log('Submitting hidden form to Google Forms...');
   hiddenForm.submit();
+  console.log('Form submission completed');
   
   // Clean up
   setTimeout(() => {
