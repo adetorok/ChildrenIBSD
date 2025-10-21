@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
+      // Prevent default form submission (we'll handle it manually)
+      e.preventDefault();
+
       // Show loading state
       const submitButton = form.querySelector('.cta-button');
       const originalText = submitButton.innerHTML;
