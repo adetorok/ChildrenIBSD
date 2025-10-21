@@ -266,10 +266,10 @@ function showFollowUpNotification() {
     notification.classList.add('show');
   }, 100);
   
-  // Auto-hide after 8 seconds
+  // Auto-hide after 15 seconds
   setTimeout(() => {
     closeFollowUpNotification();
-  }, 8000);
+  }, 15000);
 }
 
 function closeFollowUpNotification() {
